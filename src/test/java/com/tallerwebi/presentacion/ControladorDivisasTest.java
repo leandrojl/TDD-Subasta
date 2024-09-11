@@ -29,6 +29,9 @@ public class ControladorDivisasTest {
     @Test
     public void DebeRetornarLaVistaResutadoYSolamenteElValorConvertidoCuandoSeEjecutaElMetodoMostrarResultado(){
 
+            ControladorDivisas controladorDivisas = new ControladorDivisas();
+
+            ConversorDTO conversor_experado = new ConversorDTO(0.0, 0.0);
     }
 
     @Test

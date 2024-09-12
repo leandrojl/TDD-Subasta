@@ -1,8 +1,6 @@
-package com.tallerwebi.infraestructura;
+package torneoPadel.infraestructura;
 
 import com.tallerwebi.dominio.Usuario;
-
-import java.util.List;
 
 public interface RepositorioUsuario {
 
@@ -10,7 +8,6 @@ public interface RepositorioUsuario {
     void guardar(Usuario usuario);
     Usuario buscar(String email);
     void modificar(Usuario usuario);
-
-    List<Usuario> listarTodos();
 }
+
 

@@ -1,5 +1,6 @@
 package com.tallerwebi.infraestructura.repositorioTorneo;
 
+import com.tallerwebi.dominio.servicioTorneo.Torneo;
 import com.tallerwebi.dominio.servicioUsuario.Usuario;
 import com.tallerwebi.infraestructura.repositorioUsuario.RepositorioUsuario;
 import org.hibernate.Session;
@@ -21,7 +22,9 @@ public class RepositorioTorneoImpl implements RepositorioTorneo {
     }
 
 
-
-
+    @Override
+    public Object crearTorneo(Torneo torneo) {
+        return null;
+    }
 }
 

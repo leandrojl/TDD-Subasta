@@ -133,6 +133,15 @@ public class ServicioUsuarioTest {
         assertThat(usuario.getPermiso(), is(Permiso.REGULAR));
     }
 
+    @Test
+    public void queAlIntentarCrearUnUsuarioExistenteNoLoCrea(){
+
+
+
+
+
+    }
+
 
 
 }

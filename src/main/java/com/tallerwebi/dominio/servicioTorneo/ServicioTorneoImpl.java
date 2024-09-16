@@ -23,4 +23,8 @@ public class ServicioTorneoImpl implements ServicioTorneo {
     }
 
 
+    @Override
+    public void crearTorneo(Torneo torneo) {
+        this.repositorioTorneo.crearTorneo(torneo);
+    }
 }

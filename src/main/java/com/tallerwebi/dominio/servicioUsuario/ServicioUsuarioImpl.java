@@ -1,9 +1,9 @@
-package torneoPadel.dominio;
+package com.tallerwebi.dominio.servicioUsuario;
 
-import com.tallerwebi.dominio.Usuario;
-import com.tallerwebi.infraestructura.RepositorioUsuario;
+import com.tallerwebi.infraestructura.repositorioUsuario.RepositorioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -23,6 +23,12 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
 
     @Override
     public List<Usuario> listarTodos() {
+
         return this.repositorioUsuario.listarTodos();
+    }
+
+    @Override
+    public Usuario crearUsuario(Usuario usuario) {
+        return this.repositorioUsuario.crearUsuario(usuario);
     }
 }

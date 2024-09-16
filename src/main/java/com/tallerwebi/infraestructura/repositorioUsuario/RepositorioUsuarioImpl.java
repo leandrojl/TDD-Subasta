@@ -1,14 +1,12 @@
-package torneoPadel.infraestructura;
+package com.tallerwebi.infraestructura.repositorioUsuario;
 
-import com.tallerwebi.dominio.Usuario;
-import com.tallerwebi.infraestructura.RepositorioUsuario;
+import com.tallerwebi.dominio.servicioUsuario.Usuario;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @Repository("repositorioUsuario")
@@ -50,7 +48,13 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 
     @Override
     public List<Usuario> listarTodos() {
-        return new LinkedList<Usuario>();
+        return List.of();
     }
+
+    @Override
+    public Usuario crearUsuario(Usuario usuario) {
+        return null;
+    }
+
 
 }

@@ -1,6 +1,7 @@
-package com.tallerwebi.dominio;
+package com.tallerwebi.dominio.servicioLogin;
 
-import com.tallerwebi.infraestructura.RepositorioUsuario;
+import com.tallerwebi.dominio.servicioUsuario.Usuario;
+import com.tallerwebi.infraestructura.repositorioUsuario.RepositorioUsuario;
 import com.tallerwebi.dominio.excepcion.UsuarioExistente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ public class ServicioLoginImpl implements ServicioLogin {
 
     @Autowired
     public ServicioLoginImpl(RepositorioUsuario repositorioUsuario){
+
         this.repositorioUsuario = repositorioUsuario;
     }
 

@@ -1,19 +1,21 @@
-package com.tallerwebi.dominio;
+package com.tallerwebi.dominio.servicioUsuario;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Usuario {
 
-    @Id
+    @Id //esto indica que tengo una clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; //esta va a ser nuestra clave primaria
     private String email;
     private String password;
     private String rol;
+    private Permiso permiso;
     private Boolean activo = false;
 
     public Long getId() {
@@ -53,5 +55,27 @@ public class Usuario {
 
     public void activar() {
         activo = true;
+    }
+
+    public void setPermiso(Permiso rol) {
+        this.permiso = rol;
+    }
+
+    public Permiso getPermiso() {
+        return permiso;
+    }
+
+    //sobreescribo el hashcode y equals para que sean iguales por el ID
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(id, usuario.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

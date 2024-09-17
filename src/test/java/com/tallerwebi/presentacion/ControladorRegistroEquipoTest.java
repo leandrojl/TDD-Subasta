@@ -43,6 +43,7 @@ public class ControladorRegistroEquipoTest {
 
         //el registro del equipo falla porqe un usuario no existe
         assertThat(modelo.getViewName(),equalToIgnoringCase("redirect:/registroEquipo"));
+        assertThat(modelo.getModel().get("error").toString(), equalToIgnoringCase("Debe agregar dos usuarios al equipo"));
     }
 
     @Test

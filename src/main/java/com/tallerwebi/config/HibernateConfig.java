@@ -14,6 +14,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class HibernateConfig {
 
+
+    //donde esta ubicada la base de datos
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();

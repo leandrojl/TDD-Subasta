@@ -2,39 +2,56 @@ package com.tallerwebi.dominio.servicioTorneo;
 
 import com.tallerwebi.dominio.servicioUsuario.Usuario;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Equipo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String nombreEquipo;
-    private Usuario usuario1;
-    private Usuario usuario2;
 
-    public Equipo(Usuario usuario1, Usuario usuario2) {
-        this.usuario1 = usuario1;
-        this.usuario2 = usuario2;
+    // Relación de un equipo con muchos usuarios (al menos 2)
+    @OneToMany(mappedBy = "equipo")
+    private List<Usuario> usuarios = new ArrayList<>();
+
+    // Constructor con lista de usuarios
+    public Equipo(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
-    public Equipo () {
-
+    public Equipo() {
     }
 
-    public void guardarUsuarios(Usuario usuario1, Usuario usuario2) {
-        setUsuario1(usuario1);
-        setUsuario2(usuario2);
+    public Long getId() {
+        return id;
     }
 
-    public Usuario getUsuario1() {
-        return usuario1;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setUsuario1(Usuario usuario1) {
-        this.usuario1 = usuario1;
+    public String getNombreEquipo() {
+        return nombreEquipo;
     }
 
-    public Usuario getUsuario2() {
-        return usuario2;
+    public void setNombreEquipo(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
     }
 
-    public void setUsuario2(Usuario usuario2) {
-        this.usuario2 = usuario2;
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void guardarUsuario(Usuario usuario) {
+        this.usuarios.add(usuario);
     }
 }

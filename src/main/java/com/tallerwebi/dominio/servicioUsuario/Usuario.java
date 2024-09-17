@@ -9,9 +9,9 @@ import java.util.Objects;
 @Entity
 public class Usuario {
 
-    @Id
+    @Id //esto indica que tengo una clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; //esta va a ser nuestra clave primaria
     private String email;
     private String password;
     private String rol;

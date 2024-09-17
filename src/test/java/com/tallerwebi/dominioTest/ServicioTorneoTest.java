@@ -7,9 +7,9 @@ import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.Mockito.*;
 
@@ -61,11 +61,50 @@ public class ServicioTorneoTest {
         Equipo equipo2 = new Equipo();
 
         //cuando guardo los dos equipos
-        partido.guardarEquipos(equipo1, equipo2);
+        partido.guardarEquipo(equipo1);
+        partido.guardarEquipo(equipo2);
 
         //entonces el partido tiene dos equipos
-        assertThat(partido.getEquipo1(), new IsEqual<>(equipo1));
-        assertThat(partido.getEquipo2(), new IsEqual<>(equipo2));
+        assertThat(partido.getEquipos().contains(equipo1), is(true));
+        assertThat(partido.getEquipos().contains(equipo2), is(true));
+
+
+    }
+
+    @Test
+    public void queSePuedanCrearDosEquiposConDosUsuariosCadaEquipo(){
+        //given when then
+        //dado dos equipos
+
+        Equipo equipo1 = new Equipo();
+
+        Equipo equipo2 = new Equipo();
+
+        //dados dos usuarios para cada equipo
+        Usuario usuario1 = new Usuario();
+
+        Usuario usuario2 = new Usuario();
+
+        Usuario usuario3 = new Usuario();
+
+        Usuario usuario4 = new Usuario();
+
+        //cuando guardo dos usuarios en un equipo1
+        equipo1.guardarUsuario(usuario1);
+        equipo1.guardarUsuario(usuario2);
+        //cuando guardo dos usuarios en un equipo2
+        equipo2.guardarUsuario(usuario3);
+        equipo2.guardarUsuario(usuario4);
+
+
+
+        //entonces el partido tiene dos equipos con dos usuarios cada equipo
+        assertThat(equipo1.getUsuarios().contains(usuario1), is(true));
+        assertThat(equipo1.getUsuarios().contains(usuario2), is(true));
+        assertThat(equipo2.getUsuarios().contains(usuario3), is(true));
+        assertThat(equipo2.getUsuarios().contains(usuario4), is(true));
+
+
 
 
     }
@@ -89,19 +128,20 @@ public class ServicioTorneoTest {
         Usuario usuario4 = new Usuario();
 
         //cuando guardo dos usuarios en un equipo
-        equipo1.guardarUsuarios(usuario1,usuario2);
-        equipo2.guardarUsuarios(usuario3,usuario4);
+        equipo1.guardarUsuario(usuario1);
+        equipo1.guardarUsuario(usuario2);
+        equipo2.guardarUsuario(usuario3);
+        equipo2.guardarUsuario(usuario4);
 
-        //cuando guardo los dos equipos
-        partido.guardarEquipos(equipo1, equipo2);
-
+        //cuando guardo los equipos en los partidos
+        partido.guardarEquipo(equipo1);
+        partido.guardarEquipo(equipo2);
 
 
         //entonces el partido tiene dos equipos con dos usuarios cada equipo
-        assertThat(partido.getEquipo1().getUsuario1(), new IsEqual<>(usuario1));
-        assertThat(partido.getEquipo1().getUsuario2(), new IsEqual<>(usuario2));
-        assertThat(partido.getEquipo2().getUsuario1(), new IsEqual<>(usuario3));
-        assertThat(partido.getEquipo2().getUsuario2(), new IsEqual<>(usuario4));
+        assertThat(partido.getEquipos().contains(equipo1), is(true));
+        assertThat(partido.getEquipos().contains(equipo2), is(true));
+
 
 
     }

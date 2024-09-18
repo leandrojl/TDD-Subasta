@@ -11,8 +11,10 @@ public class Partido {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "partido")
+
+    @OneToMany(mappedBy = "partido", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Equipo> equipos = new ArrayList<>();
 
     public Partido(List<Equipo> equipos) {

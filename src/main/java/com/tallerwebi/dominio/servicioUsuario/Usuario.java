@@ -1,9 +1,8 @@
 package com.tallerwebi.dominio.servicioUsuario;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.tallerwebi.dominio.servicioTorneo.Equipo;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +11,12 @@ public class Usuario {
     @Id //esto indica que tengo una clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; //esta va a ser nuestra clave primaria
+
+    @ManyToOne
+    @JoinColumn(name = "equipo_id")
+    private Equipo equipo;
+
+    private String nombre;
     private String email;
     private String password;
     private String rol;
@@ -23,6 +28,12 @@ public class Usuario {
     }
     public void setId(Long id) {
         this.id = id;
+    }
+    public String getNombre() {
+        return this.nombre;
+    }
+    public void setId(String nombre) {
+        this.nombre = nombre;
     }
     public String getEmail() {
         return email;

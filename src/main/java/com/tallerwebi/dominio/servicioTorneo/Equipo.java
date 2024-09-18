@@ -15,8 +15,13 @@ public class Equipo {
 
     private String nombreEquipo;
 
+    @ManyToOne
+    @JoinColumn(name = "partido_id")
+    private Partido partido;
+
+
     // Relación de un equipo con muchos usuarios (al menos 2)
-    @OneToMany(mappedBy = "equipo")
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Usuario> usuarios = new ArrayList<>();
 
     // Constructor con lista de usuarios

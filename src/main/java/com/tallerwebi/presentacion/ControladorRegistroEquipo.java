@@ -25,7 +25,11 @@ public class ControladorRegistroEquipo {
 
     }
 
-     //el nombre de aca es de la url
+    public ControladorRegistroEquipo() {
+
+    }
+
+    //el nombre de aca es de la url
     //no tiene que ver con el nombre de new ModelAndView("equipo", modelo);
      @RequestMapping( "/registrar-equipo-padel") // localhost:8080/spring/registrar-equipo-padel es la URL
     public ModelAndView irAlRegistroDelEquipoDePadel(){
@@ -38,7 +42,7 @@ public class ControladorRegistroEquipo {
 
     }
 
-    @RequestMapping(path = "/registracion-equipo-padel") //este metodo es un ENDPOINT
+    @RequestMapping(path = "/registracion-equipo-padel1") //este metodo es un ENDPOINT
     public ModelAndView registrarEquipoDePadelConNombreDeEquipoYDosNombresDeJugador(@RequestParam  String nombre_equipo, @RequestParam  String usuario1, @RequestParam  String usuario2) {
 
          Boolean verificacion = servicioRegistroEquipo.verificaElNombreDelEquipoYLosUsuarios(nombre_equipo, usuario1, usuario2);

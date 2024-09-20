@@ -2,6 +2,7 @@ package com.tallerwebi.presentacion;
 
 import com.tallerwebi.dominio.servicioTorneo.Equipo;
 import com.tallerwebi.dominio.servicioUsuario.Usuario;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,6 +13,12 @@ public class ControladorRegistroEquipoTest {
 
 
     ControladorRegistroEquipo controladorRegistroEquipo;
+
+    @BeforeEach
+    public void setUp() {
+        // Inicializamos el controlador antes de cada test
+        controladorRegistroEquipo = new ControladorRegistroEquipo();
+    }
 
     @Test
     public void siExistenLosDosUsuariosElEquipoEsCreadoExitosamente() {
@@ -26,7 +33,7 @@ public class ControladorRegistroEquipoTest {
         //le muestro al usuario que el equipo fue creado correctamente
 
 
-        assertThat(modelo.getViewName(),equalToIgnoringCase("registroEquipoExitoso"));
+        assertThat(modelo.getViewName(),equalToIgnoringCase("registro-equipo-exitoso"));
     }
 
     @Test

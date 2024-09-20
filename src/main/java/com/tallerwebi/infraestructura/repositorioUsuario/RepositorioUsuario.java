@@ -14,5 +14,9 @@ public interface RepositorioUsuario {
     List<Usuario> listarTodos();
 
     Usuario crearUsuario(Usuario usuario);
+
+    String buscarUsuario(String usuario1);
+
+    Usuario buscarUsuario(Usuario usuario1);
 }
 

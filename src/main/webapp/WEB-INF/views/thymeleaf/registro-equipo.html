@@ -20,6 +20,35 @@
 
 
     </div>
+    <form th:action="@{|/registracion-equipo-padel-1|}"
+          method="get"
+          enctype="application/x-www-form-urlencoded"
+          class="w3-container w3-card-4  w3-text-blue w3-margin w3-third">
+
+        <div class="w3-container  w3-padding-16">
+            <h2 class="w3-center w3-xxlarge">Formulario con Objeto Usuario:</h2>
+            <div class="w3-col s12 m12 l12">
+
+                <label class="w3-text-blue"><b>Nombre del equipo:</b></label>
+                <!---->
+                <input class="w3-input w3-border" type="text" name="nombre_equipo">
+
+                <label class="w3-text-blue"><b>Nombre de usuario 1:</b></label>
+                <!---->
+                <input class="w3-input w3-border" type="text" name="usuario1">
+
+                <label class="w3-text-blue"><b>Nombre de usuario 2:</b></label>
+
+                <input class="w3-input w3-border" type="text" name="usuario2">
+
+            </div>
+
+        </div>
+        <div class="w3-col s12 m12 l12">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom" type="submit">Guardar equipo</button>
+        </div>
+
+    </form>
     <form th:action="@{|/registracion-equipo-padel|}"
           method="get"
           enctype="application/x-www-form-urlencoded"

@@ -56,5 +56,15 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
         return null;
     }
 
+    @Override
+    public String buscarUsuario(String usuario1) {
+        return "";
+    }
+
+    @Override
+    public Usuario buscarUsuario(Usuario usuario1) {
+        return null;
+    }
+
 
 }

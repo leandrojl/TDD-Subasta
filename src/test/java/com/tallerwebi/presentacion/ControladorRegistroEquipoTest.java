@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.equalToIgnoringCase;
 public class ControladorRegistroEquipoTest {
 
 
-    ControladorRegistroEquipo controladorRegistroEquipo = new ControladorRegistroEquipo();
+    ControladorRegistroEquipo controladorRegistroEquipo;
 
     @Test
     public void siExistenLosDosUsuariosElEquipoEsCreadoExitosamente() {
